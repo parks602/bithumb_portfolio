@@ -1,8 +1,25 @@
 import streamlit as st
 import importlib
 
+
 # 페이지 설정
 st.set_page_config(page_title="가상자산 거래소 통합 대시보드", layout="wide")
+
+import subprocess
+import sys
+
+subprocess.check_call(
+    [
+        sys.executable,
+        "-m",
+        "pip",
+        "install",
+        "--upgrade",
+        "--force-reinstall",
+        "seaborn",
+    ]
+)
+
 
 # 사이드바 메뉴
 st.sidebar.title("분석 선택")
