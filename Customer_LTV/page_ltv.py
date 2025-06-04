@@ -4,15 +4,18 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from datetime import datetime
 import plotly.graph_objects as go
+from matplotlib import font_manager as fm
+
 import os
 
 
 def run():
     current_path = os.getcwd()  # 현재 경로
     data_dir = os.path.join(current_path, "data")
+    font_dir = os.path.join(current_path, "font", "NanumGothic.ttf")
 
-    plt.rcParams["font.family"] = "Malgun Gothic"  # 윈도우
-    plt.rcParams["font.family"] = "NanumGothic"
+    font_prop = fm.FontProperties(fname=font_dir)
+    plt.rcParams["font.family"] = font_prop.get_name()
     plt.rcParams["axes.unicode_minus"] = False
 
     # 1. 데이터 불러오기

@@ -12,6 +12,7 @@ import xgboost as xgb
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+from matplotlib import font_manager as fm
 
 import os
 
@@ -20,12 +21,16 @@ import os
 #     layout="wide",  #  화면을 넓게 설정
 # )
 def run():
-    plt.rcParams["font.family"] = "Malgun Gothic"  # 윈도우
-    plt.rcParams["font.family"] = "NanumGothic"
+    current_path = os.getcwd()  # 현재 경로
+
+    font_dir = os.path.join(current_path, "font", "NanumGothic.ttf")
+    font_prop = fm.FontProperties(fname=font_dir)
+    plt.rcParams["font.family"] = font_prop.get_name()
+    plt.rcParams["axes.unicode_minus"] = False
+
     plt.rcParams["axes.unicode_minus"] = False
     plt.rcParams.update({"font.size": 10})
 
-    current_path = os.getcwd()  # 현재 경로
     data_dir = os.path.join(current_path, "data")
     # -- 1. 데이터 로드 (churn_df) --
     # 예) CSV 불러오기 (이미 churn_df 생성 후 저장했다고 가정)
