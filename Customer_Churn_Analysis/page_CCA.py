@@ -204,13 +204,13 @@ def run():
     # -- 3-2. XGBoost --
 
     st.markdown("#### 2.2 XGBoost")
-
-    xgb_clf = xgb.XGBClassifier(
-        use_label_encoder=False, eval_metric="logloss", random_state=42
-    )
-    xgb_clf.fit(X_train, y_train)
-    y_pred_xgb = xgb_clf.predict(X_test)
-    y_proba_xgb = xgb_clf.predict_proba(X_test)[:, 1]
+    with st.spinner("XGBoost 모델 학습 중..."):
+        xgb_clf = xgb.XGBClassifier(
+            use_label_encoder=False, eval_metric="logloss", random_state=42
+        )
+        xgb_clf.fit(X_train, y_train)
+        y_pred_xgb = xgb_clf.predict(X_test)
+        y_proba_xgb = xgb_clf.predict_proba(X_test)[:, 1]
 
     st.write("분류 리포트:")
     st.dataframe(
@@ -229,40 +229,43 @@ def run():
     # 여기서는 'days_since_last_login' ~ 'num_inquiries_last_30d' 특성들을 1시계열 시퀀스처럼 가정하여 훈련하는 예시
 
     # 단순화를 위해 동일 feature 컬럼들을 1개 timestep으로 reshape (실제로 시계열 데이터면 여러 timestep 필요)
-    X_train_lstm = np.expand_dims(
-        X_train.values, axis=1
-    )  # shape: (samples, timesteps=1, features)
-    X_test_lstm = np.expand_dims(X_test.values, axis=1)
+    with st.spinner("LSTM 모델 학습 중..."):
+        X_train_lstm = np.expand_dims(
+            X_train.values, axis=1
+        )  # shape: (samples, timesteps=1, features)
+        X_test_lstm = np.expand_dims(X_test.values, axis=1)
 
-    from tensorflow.keras.callbacks import EarlyStopping
+        from tensorflow.keras.callbacks import EarlyStopping
 
-    model = Sequential(
-        [
-            LSTM(
-                32,
-                input_shape=(X_train_lstm.shape[1], X_train_lstm.shape[2]),
-                activation="relu",
-            ),
-            Dense(1, activation="sigmoid"),
-        ]
-    )
+        model = Sequential(
+            [
+                LSTM(
+                    32,
+                    input_shape=(X_train_lstm.shape[1], X_train_lstm.shape[2]),
+                    activation="relu",
+                ),
+                Dense(1, activation="sigmoid"),
+            ]
+        )
 
-    model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
-    early_stop = EarlyStopping(monitor="val_loss", patience=3)
+        model.compile(
+            loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"]
+        )
+        early_stop = EarlyStopping(monitor="val_loss", patience=3)
 
-    history = model.fit(
-        X_train_lstm,
-        y_train,
-        epochs=20,
-        batch_size=32,
-        validation_split=0.2,
-        callbacks=[early_stop],
-        verbose=0,
-    )
+        history = model.fit(
+            X_train_lstm,
+            y_train,
+            epochs=20,
+            batch_size=32,
+            validation_split=0.2,
+            callbacks=[early_stop],
+            verbose=0,
+        )
 
-    # 예측 및 평가
-    y_proba_lstm = model.predict(X_test_lstm).flatten()
-    y_pred_lstm = (y_proba_lstm >= 0.5).astype(int)
+        # 예측 및 평가
+        y_proba_lstm = model.predict(X_test_lstm).flatten()
+        y_pred_lstm = (y_proba_lstm >= 0.5).astype(int)
 
     from sklearn.metrics import accuracy_score
 
