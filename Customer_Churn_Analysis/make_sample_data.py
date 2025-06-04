@@ -82,4 +82,4 @@ churn_df["churn"] = np.random.binomial(n=1, p=np.clip(churn_prob, 0, 1))
 
 print(churn_df.head())
 # 7) 최종 데이터 저장
-churn_df.to_csv("../data/customer_churn_data.csv", index=False)
+churn_df.to_csv(f"{data_dir}/customer_churn_data.csv", index=False)

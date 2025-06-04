@@ -1,6 +1,11 @@
 import pandas as pd
 import numpy as np
 import random
+import os
+
+current_path = os.getcwd()  # 현재 경로
+parent_path = os.path.dirname(current_path)  # 상위 폴더 경로
+data_dir = os.path.join(parent_path, "data")  # 상위 폴더의 data 폴더 경로
 
 np.random.seed(42)
 random.seed(42)
@@ -110,6 +115,6 @@ snapshots_df = pd.DataFrame(
 )
 
 # 결과 샘플 출력
-users_df.to_csv("data/users_df.csv")
-transactions_df.to_csv("data/transactions_df.csv")
-snapshots_df.to_csv("data/snapshots_df.csv")
+users_df.to_csv(f"{data_dir}/users_df.csv")
+transactions_df.to_csv(f"{data_dir}/transactions_df.csv")
+snapshots_df.to_csv(f"{data_dir}/snapshots_df.csv")
