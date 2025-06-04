@@ -7,6 +7,8 @@ st.set_page_config(page_title="가상자산 거래소 통합 대시보드", layo
 
 # 사이드바 메뉴
 st.sidebar.title("분석 선택")
+with st.sidebar:
+    st.write("---")
 
 module = st.sidebar.selectbox(
     "분석 항목을 선택하세요",
@@ -16,6 +18,7 @@ module = st.sidebar.selectbox(
         "전환 분석 (Conversion Funnel)",
     ),
 )
+
 
 # 각 분석 폴더에 있는 .py 파일 불러오기
 if module == "고객 LTV 분석 (LTV)":
@@ -32,7 +35,8 @@ elif module == "전환 분석 (Conversion Funnel)":
 
 
 with st.sidebar:
-    st.write("---")
+    st.write(" ")
+    st.write(" ")
     st.title("개발자 정보")
     st.write("---")
     st.markdown(
