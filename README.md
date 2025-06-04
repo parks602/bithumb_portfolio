@@ -1,5 +1,17 @@
 # Bithumb_portfolio
 
+이 름 : 박건우
+
+연락처 : 010-3302-6840
+
+E-mail : parks602@naver.com
+
+
+본 포트폴리오는 빗썸의 고객 데이터 분석에 대한 집중된 포트폴리오 제작을 목표로 합니다.
+
+모든 대시보드는 빠른 생성과 배포를 위해 Streamlit을 통해 제작 되었습니다.
+해당 페이지 : [App](https://bithumbportfolio-ercqbsmpv4wmqub5detnrb.streamlit.app/)
+
 ## 분석 주제 요약
 
 * **1\. 고객 LTV 분석**: 고객의 총 거래금액 기반 수수료 수익을 산출하여 세그먼트별 Lifetime Value를 추정합니다. 마케팅 타겟팅과 VIP 고객 운영 전략에 활용됩니다.
@@ -16,3 +28,4 @@
 
 
 자세한 내용 아래 링크: [Funnel_Analysis](https://github.com/parks602/bithumb_portfolio/tree/main/Funnel_Analysis)
+
