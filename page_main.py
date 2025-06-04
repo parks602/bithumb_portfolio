@@ -9,7 +9,7 @@ st.set_page_config(page_title="가상자산 거래소 통합 대시보드", layo
 st.sidebar.title("분석 선택")
 
 with st.sidebar:
-    st.wirte("---")
+    st.write("---")
     st.markdown(
         """
     이 름 : 박건우
