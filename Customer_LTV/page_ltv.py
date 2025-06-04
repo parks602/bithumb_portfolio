@@ -13,9 +13,9 @@ def run():
     current_path = os.getcwd()  # 현재 경로
     data_dir = os.path.join(current_path, "data")
     font_dir = os.path.join(current_path, "font", "NanumGothic.ttf")
-
-    font_prop = fm.FontProperties(fname=font_dir)
-    plt.rcParams["font.family"] = font_prop.get_name()
+    fm.fontManager.addfont(font_dir)
+    plt.rcParams["font.family"] = fm.FontProperties(fname=font_dir).get_name()
+    plt.rcParams["axes.unicode_minus"] = False
 
     # 1. 데이터 불러오기
     users_df = pd.read_csv(f"{data_dir}/users_df.csv", parse_dates=["signup_date"])

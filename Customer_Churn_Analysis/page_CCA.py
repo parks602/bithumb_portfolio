@@ -24,10 +24,8 @@ def run():
     current_path = os.getcwd()  # 현재 경로
 
     font_dir = os.path.join(current_path, "font", "NanumGothic.ttf")
-    font_prop = fm.FontProperties(fname=font_dir)
-    plt.rcParams["font.family"] = font_prop.get_name()
-    plt.rcParams["axes.unicode_minus"] = False
-
+    fm.fontManager.addfont(font_dir)
+    plt.rcParams["font.family"] = fm.FontProperties(fname=font_dir).get_name()
     plt.rcParams["axes.unicode_minus"] = False
 
     data_dir = os.path.join(current_path, "data")
