@@ -4,8 +4,21 @@ import importlib
 # 페이지 설정
 st.set_page_config(page_title="가상자산 거래소 통합 대시보드", layout="wide")
 
+
 # 사이드바 메뉴
 st.sidebar.title("분석 선택")
+
+with st.sidebar:
+    st.wirte("---")
+    st.markdown(
+        """
+    이 름 : 박건우
+
+    연락처 : 010-3302-6840
+
+    E-mail : parks602@naver.com
+    """
+    )
 module = st.sidebar.selectbox(
     "분석 항목을 선택하세요",
     (
