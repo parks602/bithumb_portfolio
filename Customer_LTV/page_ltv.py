@@ -12,6 +12,7 @@ def run():
     data_dir = os.path.join(current_path, "data")
 
     plt.rcParams["font.family"] = "Malgun Gothic"  # 윈도우
+    plt.rcParams["font.family"] = "NanumGothic"
     plt.rcParams["axes.unicode_minus"] = False
 
     # 1. 데이터 불러오기

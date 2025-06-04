@@ -21,6 +21,7 @@ import os
 # )
 def run():
     plt.rcParams["font.family"] = "Malgun Gothic"  # 윈도우
+    plt.rcParams["font.family"] = "NanumGothic"
     plt.rcParams["axes.unicode_minus"] = False
     plt.rcParams.update({"font.size": 10})
 
