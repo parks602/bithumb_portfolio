@@ -16,7 +16,6 @@ def run():
 
     font_prop = fm.FontProperties(fname=font_dir)
     plt.rcParams["font.family"] = font_prop.get_name()
-    fm._rebuild()
 
     # 1. 데이터 불러오기
     users_df = pd.read_csv(f"{data_dir}/users_df.csv", parse_dates=["signup_date"])

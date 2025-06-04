@@ -29,7 +29,6 @@ def run():
     plt.rcParams["axes.unicode_minus"] = False
 
     plt.rcParams["axes.unicode_minus"] = False
-    fm._rebuild()
 
     data_dir = os.path.join(current_path, "data")
     # -- 1. 데이터 로드 (churn_df) --
