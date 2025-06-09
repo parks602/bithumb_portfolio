@@ -10,6 +10,9 @@ E-mail : parks602@naver.com
 본 포트폴리오는 빗썸의 고객 데이터 분석에 대한 집중된 포트폴리오 제작을 목표로 합니다.
 
 모든 대시보드는 빠른 생성과 배포를 위해 Streamlit을 통해 제작 되었습니다.
+
+**아래 APP을 눌러서 확인해보세요!**
+
 해당 페이지 : [App](https://bithumbportfolio-pkw.streamlit.app/)
 
 ## 분석 주제 요약
