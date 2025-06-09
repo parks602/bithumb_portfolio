@@ -11,7 +11,7 @@ E-mail : parks602@naver.com
 
 모든 대시보드는 빠른 생성과 배포를 위해 Streamlit을 통해 제작 되었습니다.
 
-**아래 APP을 눌러서 확인해보세요!**
+<u>**아래 APP을 눌러서 확인해보세요!**</u>
 
 해당 페이지 : [App](https://bithumbportfolio-pkw.streamlit.app/)
 
